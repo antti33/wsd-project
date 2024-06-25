@@ -7,10 +7,9 @@ const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 const app = new Hono();
 
 app.get("/", async (c) => {
-    const data = {
-      songs: await songService.listSongs(),
-    };
-
+  const data = {
+    songs: await songService.listSongs(),
+  };
     return c.html(
       eta.render("index.eta", data),
     );
